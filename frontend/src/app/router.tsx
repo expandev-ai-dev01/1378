@@ -4,6 +4,8 @@ import { LoadingSpinner } from '@/core/components/LoadingSpinner';
 import { MainLayout } from '@/pages/layouts/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/Home'));
+const MedicationsPage = lazy(() => import('@/pages/Medications'));
+const MedicationNewPage = lazy(() => import('@/pages/MedicationNew'));
 const NotFoundPage = lazy(() => import('@/pages/NotFound'));
 
 /**
@@ -19,6 +21,8 @@ const NotFoundPage = lazy(() => import('@/pages/NotFound'));
  *
  * @routing
  * - Path: / - Home page
+ * - Path: /medications - Medications list
+ * - Path: /medications/new - New medication form
  * - Path: * - 404 Not Found page
  */
 export const AppRouter = () => {
@@ -27,6 +31,8 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="medications" element={<MedicationsPage />} />
+          <Route path="medications/new" element={<MedicationNewPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
